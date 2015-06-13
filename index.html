@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PP Quando?</title>
+    <title>PP Quando? - Fique Sabendo o melhor dia para você curtir o PP!</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -30,7 +30,7 @@
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
-							<ul class="gn-menu">
+							<ul class="gn-menu" ng-repeat="tag in tags">
 								<li class="gn-search-item">
 									<input placeholder="Filtre por estilo" type="search" class="gn-search">
 									<a class="gn-icon gn-icon-search"><span></span></a>
@@ -52,7 +52,7 @@
 			</ul>
 	</div>
 
-	<!-- Section: works -->
+	<!-- Section atracoes -->
     <section id="works" class="home-section text-center bg-gray">
 		<div>
 			<div class="container">
@@ -70,75 +70,13 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container" ng-controller="PhoneListCtrl">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12" >
-
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="row gallery-item">
-                        <div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive show-graph" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-					</div>
-
-                    <div class="row gallery-item">
-                        <div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-					</div>
-	
-                    <div class="row gallery-item">
-                        <div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
+                        <div class="col-md-3" ng-repeat="img in imgs">
+							<a href="#modal{{img}}" data-toggle="modal">
+								<img src="img/works/{{img}}.jpg" class="img-responsive show-graph" alt="img">
 							</a>
 						</div>
 					</div>
@@ -146,9 +84,10 @@
             </div>	
 		</div>
 	</section>
-	<!-- /Section: works -->
+	<!-- /Section atracoes -->
+	
 
-	<!-- Section: about -->
+	<!-- Section equipe -->
     <section id="about" class="home-section text-center bg-gray margin-less">
 		<div class="heading-about marginbot-30">
 			<div class="container">
@@ -227,7 +166,7 @@
         </div>		
 		</div>
 	</section>
-	<!-- /Section: about -->
+	<!-- Section equipe -->
 	
 	<footer>
 		<div class="container">
@@ -241,22 +180,38 @@
 
 
 	<!-- modals -->
-	<div id="myModal" class="modal fade">
-	    <div class="modal-dialog">
-	        <div class="modal-content">
-	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	                <h4 class="modal-title">Confirmation</h4>
-	            </div>
-	            <div class="modal-body">
-	                <p>Do you want to save changes you made to document before closing?</p>
-	                <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
-	            </div>
-	            <div class="modal-footer">
-	                
-	            </div>
-	        </div>
-	    </div>
+	<div ng-controller="PhoneListCtrl">
+		<div ng-repeat="m in modals">
+			<div id="modal{{m}}" class="modal fade">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			                <h4 class="modal-title">Dia {{programacao[m-1].data}}</h4>
+			            </div>
+			            <div class="modal-body">
+			                <div class="row">
+				                <div class="col-lg-12">
+				                    <div class="panel panel-default">
+				                        <div class="panel-heading">
+				                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Estilos musicais</h3>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+			                <div class="row">
+		                        <div class="col-md-12" bar-chart chart-data="programacao[0]" id="{{format(programacao[0].data)}}">
+                    				Footer {{format(programacao[m-1].data)}}
+                				</div>
+				            </div>
+			            </div>
+			            <div class="modal-footer">
+			                
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
 	</div>
 
     <!-- Core JavaScript Files -->
@@ -270,8 +225,10 @@
 	<script src="js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="js/angular.min.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers.js"></script>    
     <script>
 		$(document).ready(function(){
 	    	$("nada").hover(function(){
@@ -281,11 +238,6 @@
 	    	});
 		});
 	</script>
-	<script type="text/javascript">
-	$(".show-graph").onclick(function(){
-		$("#myModal").modal('show');
-	});
-</script>
 </body>
 
 </html>
