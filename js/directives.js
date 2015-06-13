@@ -2,7 +2,7 @@
 
 /* Directives */
 
-ppQuandoApp.directive('barChart', function($window){
+phonecatApp.directive('barChart', function($window){
     return{
         restrict:'EA',
         template:"<svg></svg>",
