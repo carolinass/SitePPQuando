@@ -8,6 +8,9 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
     $scope.opa = [];
     $scope.firstTime = true;
 
+    $scope.imgs = ["1", "2", "3", "4", "6"]
+    $scope.modals = [1, 2, 3, 4, 6]
+
 
     $http.get('dados/media_tags.json').success(function(data) {
         $scope.programacao = data;
