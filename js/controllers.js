@@ -7,9 +7,23 @@ var phonecatApp = angular.module('phonecatApp', []);
 phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.opa = [];
     $scope.firstTime = true;
-
+    $scope.programacao = []
+    $scope.tags = []
     $scope.imgs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]
     $scope.modals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+    $scope.salesData=[
+        {hour: 1,sales: 54},
+        {hour: 2,sales: 66},
+        {hour: 3,sales: 77},
+        {hour: 4,sales: 70},
+        {hour: 5,sales: 60},
+        {hour: 6,sales: 63},
+        {hour: 7,sales: 55},
+        {hour: 8,sales: 47},
+        {hour: 9,sales: 55},
+        {hour: 10,sales: 30}
+    ];
 
 
     $http.get('dados/media_tags.json').success(function(data) {
@@ -76,13 +90,15 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
 
 }]);
 
-phonecatApp.directive('barChart', function($window){
+phonecatApp.directive('barChart', function($parse,$window){
     return{
         restrict:'EA',
         template:"<svg></svg>",
+        //scope: {
+        //    bardata: "="
+        //},
         link: function(scope, elem, attrs){
-
-            var data1=scope[attrs.chartData];
+            var data1=scope.data;
             var data = _.map(data1.media_tags, function (value,key) {
                 return {'letter':key,'frequency':value}
             })
