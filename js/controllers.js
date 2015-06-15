@@ -12,19 +12,6 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
     $scope.imgs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]
     $scope.modals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 
-    $scope.salesData=[
-        {hour: 1,sales: 54},
-        {hour: 2,sales: 66},
-        {hour: 3,sales: 77},
-        {hour: 4,sales: 70},
-        {hour: 5,sales: 60},
-        {hour: 6,sales: 63},
-        {hour: 7,sales: 55},
-        {hour: 8,sales: 47},
-        {hour: 9,sales: 55},
-        {hour: 10,sales: 30}
-    ];
-
 
     $http.get('dados/media_tags.json').success(function(data) {
         $scope.programacao = data;
@@ -40,6 +27,10 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
         return data.replace(/\//g, "");
     }
 
+    $scope.getIndex = function(data){
+        return _.indexOf( $scope.programacao,data) + 1;
+    }
+
     $scope.hoverIn = function(){
     this.hoverEdit = true;
     };
@@ -51,12 +42,13 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
     $scope.orderProp = 'age';
     $scope.tagsAdded = [];
     $scope.includeTag = function(tag){
-        var i = _.indexOf( $scope.tagsAdded,tag);
-        if (i > -1) {
-            $scope.tagsAdded.splice(i, 1);
-        } else {
-            $scope.tagsAdded.push(tag);
-        }
+        $scope.tagsAdded = [tag]
+        //var i = _.indexOf( $scope.tagsAdded,tag);
+        //if (i > -1) {
+        //    $scope.tagsAdded.splice(i, 1);
+        //} else {
+        //    $scope.tagsAdded.push(tag);
+        //}
 
 
     };
@@ -80,12 +72,13 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
         var media = data.media_tags;
         if ($scope.tagsAdded.length > 0) {
             if (_.difference($scope.tagsAdded,_.keys(media)).length == 0){
-
+                console.log(data);
 
                 return data;
             }
+        }else{
+            return data;
         }
-        return;
     }
 
 }]);

@@ -41,7 +41,7 @@
 									<a class="gn-icon gn-icon-search"><span></span></a>
 								</li>
 								<div ng-repeat="tag in tags" id="hover-this">
-									<li><a href="#service" class="gn-icon gn-icon-cog">{{tag.tag}}</a></li>
+									<li><a href="" ng-click="includeTag(tag.tag)" class="gn-icon gn-icon-cog">{{tag.tag}}</a></li>
 								</div>
 							</ul>
 						</div><!-- /gn-scroller -->
@@ -78,9 +78,9 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="row gallery-item">
-                        <div class="col-md-3" ng-repeat="data in programacao">
+                        <div class="col-md-3" ng-repeat="data in programacao  | filter:filtro" >
 							<a href="#modal_{{format(data.data)}}" data-toggle="modal">
-								<img src="img/works/{{$index + 1}}.jpg" class="img-responsive show-graph" alt="img">
+								<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img">
 							</a>
 						</div>
 					</div>
