@@ -79,7 +79,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="row gallery-item">
                         <div class="col-md-3" ng-repeat="data in programacao  | filter:filtro" >
-							<a href="#modal_{{format(data.data)}}" data-toggle="modal">
+							<a href="#modal_{{format(data.data)}}" data-toggle="modal" ng-mouseover="#modal_{{format(data.data)}}">
 								<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img">
 							</a>
 						</div>
