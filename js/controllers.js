@@ -109,7 +109,7 @@ phonecatApp.directive('barChart', function($parse,$window){
                 height = 200 - margin.top - margin.bottom;
 
             var x = d3.scale.linear()
-                .range([margin.left, width]);
+                .range([0, width]);
 
             var y = d3.scale.ordinal()
                 .rangeRoundBands([height, 0],.1);
@@ -140,7 +140,7 @@ phonecatApp.directive('barChart', function($parse,$window){
 
             svg.append("g")
                 .attr("class", "x axis")
-                .attr("transform", "translate(0," + height + ")")
+                .attr("transform", "translate("+margin.left+"," + height + ")")
                 .call(xAxis);
 
             svg.append("g")
