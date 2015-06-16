@@ -90,17 +90,74 @@
 			</div>
 		</div>
 
+
+
 		<div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="row gallery-item">
-                        <div class="col-md-3" ng-repeat="data in programacao  | filter:filtro" >
-							<a href="#modal_{{format(data.data)}}" data-toggle="modal">
-								<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img"  ng-mouseover="mostrarModal('a')">
-							</a>
+
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default" id="panel1">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+									Dias anteriores
+								</a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse">
+							<div class="panel-body">
+
+
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="row gallery-item">
+										<div class="col-md-3" ng-repeat="data in diasAnteriores  | filter:filtro" >
+											<a href="#modal_{{format(data.data)}}" data-toggle="modal">
+												<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img"
+													 ng-mouseover="mostrarModal('a')" title="Clique aqui para ver os estilos do dia">
+											</a>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
 						</div>
 					</div>
-                </div>
+					<div class="panel panel-default" id="panel2">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+									Próximos dias
+								</a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse in">
+							<div class="panel-body">
+
+
+
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="row gallery-item">
+										<div class="col-md-3" ng-repeat="data in diasFaltam  | filter:filtro" >
+											<a href="#modal_{{format(data.data)}}" data-toggle="modal">
+												<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img"
+													 ng-mouseover="mostrarModal('a')" title="Clique aqui para ver os estilos do dia">
+											</a>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
             </div>	
 	</div>
 

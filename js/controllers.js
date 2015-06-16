@@ -14,7 +14,25 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
 
 
     $http.get('dados/media_tags.json').success(function(data) {
+
         $scope.programacao = data;
+
+        $scope.diasAnteriores =  _.filter(data, function(date){
+            var from = date.data.split("/");
+            var currentDate = new Date(2000 + Number(from[2]), from[1] - 1,from[0]);
+            var today = new Date();
+
+            return currentDate < today;
+        });;
+        $scope.diasFaltam =  _.filter(data, function(date){
+            var from = date.data.split("/");
+            var currentDate = new Date(2000 + Number(from[2]), from[1] - 1,from[0]);
+            var today = new Date();
+
+            return +currentDate >= +today;
+
+
+        });;
 
     });
 
@@ -75,8 +93,6 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
             }
 
             if (_.difference($scope.tagsAdded,_.keys(media)).length == 0){
-                console.log(data);
-
                 return data;
             }
         }else{
