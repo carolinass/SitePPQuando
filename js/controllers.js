@@ -31,6 +31,9 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
         return _.indexOf( $scope.programacao,data) + 1;
     }
 
+    $scope.mostrarModal = function(id){
+        var a = 1;
+    }
     $scope.hoverIn = function(){
     this.hoverEdit = true;
     };

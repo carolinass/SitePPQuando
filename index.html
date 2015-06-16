@@ -28,6 +28,17 @@
 </head>
 
 <body data-spy="scroll" ng-controller="PhoneListCtrl">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=396388807191319";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 	<div class="container">
             <!-- /.row -->
 			<ul id="gn-menu" class="gn-menu-main">
@@ -45,8 +56,16 @@
 				</li>
 				<li><a href="index.html"><img src="img/pp_quando_chapeu.png" class="small_pic"></a></li>
 				<li><ul class="company-social">
-                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        </ul>	</li>
+                    <li class="social-facebook">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://carolinass.github.io/SitePPQuando/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="social-twitter">
+                        <a href="http://twitter.com/home?status=http://carolinass.github.io/SitePPQuando/" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>                    </li>
+
+                    <!--<a href="https://www.facebook.com/sharer/sharer.php?u=http://carolinass.github.io/SitePPQuando/" title="Share on Facebook" target="_blank" class="social-facebook"><i class="fa fa-facebook"></i> </a>-->
+                </ul>
+                </li>
+
 			</ul>
 	</div>
 
@@ -75,8 +94,8 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="row gallery-item">
                         <div class="col-md-3" ng-repeat="data in programacao  | filter:filtro" >
-							<a href="#modal_{{format(data.data)}}" data-toggle="modal" ng-mouseover="#modal_{{format(data.data)}}">
-								<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img">
+							<a href="#modal_{{format(data.data)}}" data-toggle="modal">
+								<img src="img/works/{{getIndex(data)}}.jpg" class="img-responsive show-graph" alt="img"  ng-mouseover="mostrarModal('a')">
 							</a>
 						</div>
 					</div>
