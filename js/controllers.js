@@ -21,6 +21,7 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
             var from = date.data.split("/");
             var currentDate = new Date(2000 + Number(from[2]), from[1] - 1,from[0]);
             var today = new Date();
+            today.setHours(0,0,0,0)
 
             return currentDate < today;
         });;
@@ -28,6 +29,7 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
             var from = date.data.split("/");
             var currentDate = new Date(2000 + Number(from[2]), from[1] - 1,from[0]);
             var today = new Date();
+            today.setHours(0,0,0,0)
 
             return +currentDate >= +today;
 
