@@ -102,6 +102,16 @@ phonecatApp.directive('barChart', function($parse,$window){
             });
 
 
+
+            //var margin = parseInt(attrs.margin) || 20,
+            //    barHeight = parseInt(attrs.barHeight) || 20,
+            //    barPadding = parseInt(attrs.barPadding) || 5;
+            //
+            //console.log("MARGIN " + margin);
+            //console.log(barHeight);
+            //console.log(barHeight);
+
+
             scope.render = function (data) {
 
                 var data1=data;
@@ -110,14 +120,21 @@ phonecatApp.directive('barChart', function($parse,$window){
                 })
 
                 var d3 = $window.d3;
+                console.log("WIDTH " + d3.select(elem[0]).node().offsetWidth);
+
                 var rawSvg=elem.find('svg');
                 var svg = d3.select(rawSvg[0]);
-
+                svg.selectAll("*").remove();
 
                 var margin = {top: 20, right: 20, bottom: 20, left: 70},
-                    width = 500 - margin.left - margin.right,
                     height = 200 - margin.top - margin.bottom;
 
+                var width = d3.select(elem[0]).node().offsetWidth;
+                    //height = data1.length * (barHeight + barPadding);
+                if (width == 0){
+                    width = 500 - margin.left - margin.right;
+                }
+                width = width - margin.left;
                 var x = d3.scale.linear()
                     .range([0, width]);
 
@@ -127,7 +144,7 @@ phonecatApp.directive('barChart', function($parse,$window){
 
                 //var svg = d3.select("#teste").append("svg")
                 svg .style('width', '100%')
-                    .attr("width", width + margin.left + margin.right)
+                    //.attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom)
                     .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
