@@ -11,6 +11,10 @@
 	margin-top: -100px;
 }
 
+.p-margin-less{
+	margin-top: -25px;
+}
+
 .like-bottom{
 	background-color: none;
 	border: solid;
