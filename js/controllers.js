@@ -19,29 +19,25 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
     });
 
     $http.get('dados/tags.json').success(function(data) {
+        //var todos = {"count": 100,"tag":"TODOS"};
+
+        //$scope.tags = todos;
         $scope.tags = data;
 
     });
 
     $scope.format = function(data){
         return data.replace(/\//g, "");
-    }
+    };
 
     $scope.getIndex = function(data){
         return _.indexOf( $scope.programacao,data) + 1;
-    }
-
-    $scope.mostrarModal = function(id){
-        var a = 1;
-    }
-    $scope.hoverIn = function(){
-    this.hoverEdit = true;
     };
 
-    $scope.hoverOut = function(){
-        this.hoverEdit = false;
-    };
-    
+    //$scope.mostrarModal = function(id){
+    //    var a = 1;
+    //}
+    //
     $scope.orderProp = 'age';
     $scope.tagsAdded = [];
     $scope.includeTag = function(tag){
@@ -74,6 +70,10 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
     $scope.filtro = function(data) {
         var media = data.media_tags;
         if ($scope.tagsAdded.length > 0) {
+            if ($scope.tagsAdded[0] == "TODOS"){
+                return data;
+            }
+
             if (_.difference($scope.tagsAdded,_.keys(media)).length == 0){
                 console.log(data);
 
@@ -110,9 +110,7 @@ phonecatApp.directive('barChart', function($parse,$window){
             //    barHeight = parseInt(attrs.barHeight) || 20,
             //    barPadding = parseInt(attrs.barPadding) || 5;
             //
-            //console.log("MARGIN " + margin);
-            //console.log(barHeight);
-            //console.log(barHeight);
+
 
 
             scope.render = function (data) {
@@ -121,6 +119,8 @@ phonecatApp.directive('barChart', function($parse,$window){
                 var data = _.map(data1.media_tags, function (value,key) {
                     return {'letter':key,'frequency':value}
                 })
+
+                data = _.sortBy(data,'frequency');
 
                 var d3 = $window.d3;
                 console.log("WIDTH " + d3.select(elem[0]).node().offsetWidth);
@@ -184,6 +184,25 @@ phonecatApp.directive('barChart', function($parse,$window){
                     .attr("width",function(d){ return x(d.frequency);})
                     .attr("y", function(d) { return y(d.letter); })
                     .attr("height", function(d) { return y.rangeBand(); });
+
+                var insertLinebreaks = function (d) {
+                    var el = d3.select(this);
+                    var words = d.split(' ');
+                    el.text('');
+                    var string = "";
+                    el.append('tspan').text(words[0]);
+
+                    for (var i = 1; i < words.length; i++) {
+                        string += words[i] + " ";
+                    }
+                    if (words.length > 1){
+                        var tspan = el.append('tspan').text(string);
+                        tspan.attr('x', 0).attr('dy', '11');
+
+                    }
+                };
+
+                svg.selectAll('g.y.axis g.tick text').each(insertLinebreaks);
 
             }
 
