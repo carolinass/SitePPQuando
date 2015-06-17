@@ -67,7 +67,7 @@
 
 					//added by andryw
 					if( mobilecheck() ) {
-						self._closeMenu();
+						self._closeIconMenu();
 
 					}
 					//////
