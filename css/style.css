@@ -296,7 +296,7 @@ input.gn-search:focus {
 }
 
 .no-touch .gn-menu li.gn-search-item:hover input.gn-search {
-		color: white
+		color: #FF9900
 }
 
 /* placeholder */
@@ -892,4 +892,27 @@ footer a:hover {
 		
 	}
 	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gn-menu a:hover{
+    background: #FF9900;
+    color: #ffffff;
 }

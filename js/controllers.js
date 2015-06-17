@@ -172,7 +172,9 @@ phonecatApp.directive('barChart', function($parse,$window){
 
                 //d3.tsv("data.tsv", type, function(error, data) {
 
-                x.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+                //x.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+                x.domain([0, 1]);
+
                 y.domain(data.map(function(d) { return d.letter; }));
 
                 var xAxis = d3.svg.axis()
