@@ -61,7 +61,7 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $ht
     $scope.orderProp = 'age';
     $scope.tagsAdded = [];
     $scope.includeTag = function(tag){
-        $scope.tagsAdded = [tag]
+        $scope.tagsAdded = [tag];
         //var i = _.indexOf( $scope.tagsAdded,tag);
         //if (i > -1) {
         //    $scope.tagsAdded.splice(i, 1);
