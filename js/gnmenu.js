@@ -64,13 +64,7 @@
 			} );
             //Commented by andryw
             //if( !mobilecheck() ) { //If added by andryw
-                this.menu.addEventListener( this.eventtype, function(ev) {
-					ev.stopPropagation();
-						//ev.preventDefault();
-						self._closeMenu();
-
-					}
-				);
+                this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
             //}
 		},
 		_openIconMenu : function() {

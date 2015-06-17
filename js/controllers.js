@@ -222,7 +222,7 @@ phonecatApp.directive('barChart', function($parse,$window){
                     }
                 };
 
-                svg.selectAll('g.y.axis g.tick text').each(insertLinebreaks);z
+                svg.selectAll('g.y.axis g.tick text').each(insertLinebreaks);
 
             }
 
