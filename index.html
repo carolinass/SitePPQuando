@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="phonecatApp"
-	  xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:fb="http://ogp.me/ns/fb#">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -125,8 +125,15 @@
 							</h4>
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse">
-							<div class="panel-body">
+                            <div ng-if="tagsAdded.length > 0">
+                            </br>
+                            <h4 class="panel-title">
+                            {{tagsAdded[0]}}
+                            </h4>
+                                </br>
 
+                            </div>
+                            <div class="panel-body">
 
 								<div class="col-sm-12 col-md-12 col-lg-12">
 									<div class="row gallery-item">
@@ -153,7 +160,17 @@
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse in">
-							<div class="panel-body">
+                            <div ng-if="tagsAdded.length > 0">
+                                </br>
+                                <h4 class="panel-title">
+                                    {{tagsAdded[0]}}
+                                </h4>
+                                </br>
+
+                            </div>
+
+                            
+                            <div class="panel-body">
 
 
 
