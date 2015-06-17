@@ -66,10 +66,10 @@
 					ev.stopPropagation();
 
 					//added by andryw
-					if( mobilecheck() ) {
-						self._closeIconMenu();
+					//if( mobilecheck() ) {
+					//	self._closeIconMenu();
 
-					}
+					//}
 					//////
 				} );
 
