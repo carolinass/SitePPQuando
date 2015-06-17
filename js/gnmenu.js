@@ -62,10 +62,10 @@
 					document.addEventListener( self.eventtype, self.bodyClickFn );
 				}
 			} );
-
-            if( !mobilecheck() ) { //If added by andryw
-                this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
-            }
+            //Commented by andryw
+            //if( !mobilecheck() ) { //If added by andryw
+            //    this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
+            //}
 		},
 		_openIconMenu : function() {
 			classie.add( this.menu, 'gn-open-part' );
